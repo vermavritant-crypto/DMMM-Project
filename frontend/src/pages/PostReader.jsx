@@ -5,11 +5,11 @@ import { ChevronLeft } from 'lucide-react';
 import { motion, useScroll, useSpring } from 'framer-motion';
 
 const teamAuthors = [
-  { name: 'Vritant Verma', role: 'Co-Founder', initials: 'VV' },
-  { name: 'Khushi Rathi', role: 'Co-Founder', initials: 'KR' },
-  { name: 'Nishant Kumar', role: 'Co-Founder', initials: 'NK' },
-  { name: 'Aditya Raj', role: 'Co-Founder', initials: 'AR' },
-  { name: 'Vansh Singhal', role: 'Co-Founder', initials: 'VS' },
+  { name: 'Vritant Verma', initials: 'VV' },
+  { name: 'Khushi Rathi', initials: 'KR' },
+  { name: 'Nishant Kumar', initials: 'NK' },
+  { name: 'Aditya Raj', initials: 'AR' },
+  { name: 'Vansh Singhal', initials: 'VS' },
 ];
 
 export default function PostReader() {
@@ -103,7 +103,6 @@ export default function PostReader() {
               <div>
                 <p className="text-xs uppercase tracking-[0.25em] text-[var(--muted)] mb-1">Author</p>
                 <p className="font-display font-bold text-lg text-[var(--text)] dark:text-white">{author.name}</p>
-                <p className="text-sm text-[var(--muted)]">{author.role}</p>
               </div>
             </div>
             <p className="text-sm text-[var(--muted)] leading-relaxed mb-4">

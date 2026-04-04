@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom';
+
 export default function About() {
   const teamMembers = [
     { name: 'Vritant Verma' },
@@ -26,7 +28,7 @@ export default function About() {
             No shortcuts, no hype — just honest lessons from people who have launched side hustles, gained clients, and scaled their skills into sustainable work.
           </p>
           <div className="inline-flex rounded-full bg-[var(--accent)] px-6 py-3 text-sm font-semibold text-white transition hover:opacity-90">
-            Explore the blog
+            <Link to="/blog">Explore the blog</Link>
           </div>
         </div>
 
@@ -51,7 +53,7 @@ export default function About() {
 
         <div className="grid gap-6 md:grid-cols-2">
           {teamMembers.map((member) => (
-            <div className="rounded-3xl border border-slate-200/70 bg-white/90 p-6 shadow-xl shadow-slate-900/5 backdrop-blur-xl transition hover:border-blue-400/40 hover:bg-white/95 dark:border-white/10 dark:bg-slate-950/50 dark:hover:border-blue-400/30 dark:hover:bg-slate-950/70">
+            <div className="rounded-3xl border border-[var(--border)] bg-[var(--bg-card)] p-6 shadow-xl shadow-[var(--shadow-card)] backdrop-blur-xl transition hover:border-[var(--accent)] hover:bg-[var(--bg-elevated)]">
               <div className="flex items-center gap-4">
                 <div className="flex h-14 w-14 items-center justify-center rounded-full bg-gradient-to-br from-blue-600 to-purple-600 text-white text-xl font-semibold">
                   {member.name
@@ -59,7 +61,7 @@ export default function About() {
                     .map((part) => part[0])
                     .join('')}
                 </div>
-                <h3 className="font-display text-xl font-bold text-slate-950 dark:text-white">
+                <h3 className="font-display text-xl font-bold text-[var(--text)]">
                   {member.name}
                 </h3>
               </div>

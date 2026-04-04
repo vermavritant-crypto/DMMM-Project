@@ -9,23 +9,23 @@ const footerLinks = [
 ];
 
 const aboutLinks = [
-  { to: '/company-history', label: 'Company History' },
-  { to: '/meet-the-team', label: 'Meet the Team' },
-  { to: '/employee-handbook', label: 'Handbook' },
-  { to: '/careers', label: 'Careers' },
+  { to: '/about', label: 'About Us' },
+  { to: '/contact', label: 'Contact' },
+  { to: '/reviews', label: 'Reviews' },
+  { to: '/faqs', label: 'FAQs' },
 ];
 
 const serviceLinks = [
-  { to: '/web-development', label: 'Web Development' },
-  { to: '/web-design', label: 'Web Design' },
-  { to: '/marketing', label: 'Marketing' },
-  { to: '/google-ads', label: 'Google Ads' },
+  { to: '/blog', label: 'Blog' },
+  { to: '/categories', label: 'Categories' },
+  { to: '/add-post', label: 'Add Post' },
+  { to: '/reviews', label: 'Reviews' },
 ];
 
 const helpLinks = [
   { to: '/faqs', label: 'FAQs' },
-  { to: '/support', label: 'Support' },
-  { to: '/live-chat', label: 'Live Chat' },
+  { to: '/contact', label: 'Contact' },
+  { to: '/about', label: 'About' },
 ];
 
 export default function Footer() {
@@ -37,11 +37,11 @@ export default function Footer() {
           <div className="space-y-6">
             <div className="flex items-center gap-3">
               <div className="rounded-3xl bg-[var(--accent)] px-4 py-3 text-sm font-semibold text-white">
-                21st
+                MFH
               </div>
               <div>
                 <p className="text-2xl font-display font-semibold text-[var(--text)] dark:text-white">
-                  21st Dev
+                  Modern Freelancer Hub
                 </p>
                 <p className="mt-2 max-w-md text-sm text-[var(--muted)]">
                   A modern hub for freelance developers, creators, and honest digital careers.
@@ -49,44 +49,42 @@ export default function Footer() {
               </div>
             </div>
 
-            <div className="grid gap-3 sm:grid-cols-2">
-              {footerLinks.map((link) => (
-                <Link
-                  key={link.to}
-                  to={link.to}
-                  className="rounded-2xl border border-white/10 bg-white/10 px-4 py-3 text-sm text-[var(--text)] transition hover:border-[var(--accent)] hover:bg-white/20 dark:bg-white/5 dark:text-white"
-                >
-                  {link.label}
-                </Link>
-              ))}
+              <ul className="space-y-4 text-sm text-[var(--muted)]">
+                {footerLinks.map((link) => (
+                  <li key={link.to}>
+                    <Link to={link.to} className="hover:text-[var(--accent)] transition">
+                      {link.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
             </div>
-          </div>
 
-          <div>
-            <p className="text-lg font-semibold text-[var(--text)] dark:text-white mb-6">About</p>
-            <ul className="space-y-4 text-sm text-[var(--muted)]">
-              {aboutLinks.map((item) => (
-                <li key={item.to}>
-                  <Link to={item.to} className="hover:text-[var(--accent)] transition">
-                    {item.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
+            <div>
+              <p className="text-lg font-semibold text-[var(--text)] dark:text-white mb-6">About</p>
+              <ul className="space-y-4 text-sm text-[var(--muted)]">
+                {aboutLinks.map((item) => (
+                  <li key={item.to}>
+                    <Link to={item.to} className="hover:text-[var(--accent)] transition">
+                      {item.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
 
-          <div>
-            <p className="text-lg font-semibold text-[var(--text)] dark:text-white mb-6">Services</p>
-            <ul className="space-y-4 text-sm text-[var(--muted)]">
-              {serviceLinks.map((item) => (
-                <li key={item.to}>
-                  <Link to={item.to} className="hover:text-[var(--accent)] transition">
-                    {item.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
+            <div>
+              <p className="text-lg font-semibold text-[var(--text)] dark:text-white mb-6">Services</p>
+              <ul className="space-y-4 text-sm text-[var(--muted)]">
+                {serviceLinks.map((item) => (
+                  <li key={item.to}>
+                    <Link to={item.to} className="hover:text-[var(--accent)] transition">
+                      {item.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
 
           <div>
             <p className="text-lg font-semibold text-[var(--text)] dark:text-white mb-6">Help</p>
@@ -104,7 +102,7 @@ export default function Footer() {
 
         <div className="mt-12 border-t border-[var(--border)] pt-6 text-sm text-[var(--muted)] flex flex-col gap-3 sm:flex-row sm:justify-between">
           <p>All rights reserved.</p>
-          <p>&copy; 2025 21st Dev</p>
+          <p>&copy; 2025 Modern Freelancer Hub</p>
         </div>
       </div>
     </footer>
