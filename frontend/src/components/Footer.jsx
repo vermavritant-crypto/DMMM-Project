@@ -14,7 +14,6 @@ export default function Footer() {
         </div>
         <div className="flex flex-wrap gap-4 md:justify-end">
           <Link to="/about" className="text-sm text-[var(--muted)] hover:text-[var(--text)] bg-[var(--bg-elevated)] px-3 py-1.5 rounded-md transition-colors">About the Project</Link>
-          <a href="#" className="text-sm text-[var(--muted)] hover:text-[var(--text)] bg-[var(--bg-elevated)] px-3 py-1.5 rounded-md transition-colors">API Status</a>
         </div>
       </div>
     </footer>
