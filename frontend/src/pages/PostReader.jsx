@@ -1,14 +1,25 @@
-import { useEffect, useState, useMemo } from 'react';
+import { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { fetchPostBySlug, fetchPosts } from '../utils/api';
 import { ChevronLeft } from 'lucide-react';
 import { motion, useScroll, useSpring } from 'framer-motion';
+
+const teamAuthors = [
+  { name: 'Vritant Verma', role: 'Co-Founder', initials: 'VV' },
+  { name: 'Khushi Rathi', role: 'Co-Founder', initials: 'KR' },
+  { name: 'Nishant Kumar', role: 'Co-Founder', initials: 'NK' },
+  { name: 'Aditya Raj', role: 'Co-Founder', initials: 'AR' },
+  { name: 'Vansh Singhal', role: 'Co-Founder', initials: 'VS' },
+];
 
 export default function PostReader() {
   const { slug } = useParams();
   const [post, setPost] = useState(null);
   const [related, setRelated] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [following, setFollowing] = useState(false);
+
+  const author = post ? teamAuthors[(post.id - 1) % teamAuthors.length] : teamAuthors[0];
 
   const { scrollYProgress } = useScroll();
   const scaleX = useSpring(scrollYProgress, { stiffness: 100, damping: 30, restDelta: 0.001 });
@@ -85,12 +96,26 @@ export default function PostReader() {
 
         <aside className="w-full lg:w-80 flex flex-col gap-8 sticky top-24 h-fit">
           <div className="bg-[var(--bg-elevated)] border border-[var(--border)] rounded-2xl p-6">
-            <h3 className="font-display font-bold text-lg mb-4">About the Author</h3>
+            <div className="flex items-center gap-4 mb-4">
+              <div className="flex h-14 w-14 items-center justify-center rounded-full bg-gradient-to-br from-blue-600 to-purple-600 text-white text-lg font-semibold shadow-lg">
+                {author.initials}
+              </div>
+              <div>
+                <p className="text-xs uppercase tracking-[0.25em] text-[var(--muted)] mb-1">Author</p>
+                <p className="font-display font-bold text-lg text-[var(--text)] dark:text-white">{author.name}</p>
+                <p className="text-sm text-[var(--muted)]">{author.role}</p>
+              </div>
+            </div>
             <p className="text-sm text-[var(--muted)] leading-relaxed mb-4">
-              Written by successful freelancers sharing their honest journeys. No fluff, no get-rich-quick schemes.
+              Written by {author.name}, one of our core team members sharing honest freelance insights.
             </p>
-            <button className="w-full py-2.5 rounded-lg bg-[var(--text)] text-[var(--bg)] font-medium hover:opacity-90 transition-opacity">
-              Follow Updates
+            <button
+              type="button"
+              onClick={() => setFollowing((prev) => !prev)}
+              className={`w-full py-2.5 rounded-lg font-medium transition ${following ? 'bg-[var(--accent)] text-white hover:bg-[var(--accent-h)]' : 'bg-[var(--text)] text-[var(--bg)] hover:opacity-90'}`}
+              aria-pressed={following}
+            >
+              {following ? 'Following' : 'Follow Updates'}
             </button>
           </div>
 
