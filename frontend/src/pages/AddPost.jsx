@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useMemo } from 'react';
 import { useForm } from 'react-hook-form';
 import { submitPost } from '../utils/api';
 import { ChevronRight, CheckCircle2 } from 'lucide-react';
@@ -9,11 +9,12 @@ export default function AddPost() {
 
   const onSubmit = async (data) => {
     // Generate simple slug
-    const slug = data.title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)+/g, '');
+    const baseSlug = data.title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)+/g, '');
+    const slug = baseSlug || `post-${Date.now()}`;
     
     const postData = {
       title: data.title,
-      slug: slug || `post-${Date.now()}`,
+      slug: slug,
       category: data.category,
       excerpt: data.excerpt,
       content: data.content,
