@@ -61,9 +61,14 @@ export default function About() {
                     .map((part) => part[0])
                     .join('')}
                 </div>
-                <h3 className="font-display text-xl font-bold text-[var(--text)]">
-                  {member.name}
-                </h3>
+                <div>
+                  <h3 className="font-display text-xl font-bold text-[var(--text)]">
+                    {member.name}
+                  </h3>
+                  <p className="text-sm text-[var(--muted)] mt-1">
+                    {member.enrollment}
+                  </p>
+                </div>
               </div>
             </div>
           ))}
