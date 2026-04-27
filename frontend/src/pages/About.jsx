@@ -2,11 +2,11 @@ import { Link } from 'react-router-dom';
 
 export default function About() {
   const teamMembers = [
-    { name: 'Vritant Verma' enrollment: 'M25MBAG0233'},
-    { name: 'Khushi Rathi' enrollment: 'M25MBAG0027' },
-    { name: 'Nishant Kumar' enrollment: 'M25MBAG0201' },
-    { name: 'Aditya Raj' enrollment: 'M25MBAG0045'},
-    { name: 'Vansh Singhal' enrollment: 'M25MBAG0015'},
+    { name: 'Vritant Verma', enrollment: 'M25MBAG0233'},
+    { name: 'Khushi Rathi', enrollment: 'M25MBAG0027' },
+    { name: 'Nishant Kumar', enrollment: 'M25MBAG0201' },
+    { name: 'Aditya Raj', enrollment: 'M25MBAG0045'},
+    { name: 'Vansh Singhal', enrollment: 'M25MBAG0015'},
   ];
 
   return (
